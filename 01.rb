@@ -10,16 +10,16 @@ def push
     type: 'text',
     text: 'hello'
     }
-    response = @client.push_message("1482310929", message)
+    response = @client.push_message("<to>", message)
     p response
 end
 
 def get_contents
     response = @client.get_message_content("<messageId>")
-    if response.code == 200 {
+    if response.code == 200 
         tf = Tempfile.open("content")
         tf.write(response.body)
-    } else {
+    else 
         p "#{response.code} #{response.body}"
-    }
+    end
 end
